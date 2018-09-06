@@ -1,0 +1,51 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "globals": {
+    "module": false
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/order": ["error", {
+      "groups": [
+        "builtin",
+        [
+          "external",
+          "internal"
+        ],
+        "parent",
+        "sibling",
+        "index"
+      ],
+      "newlines-between": "always-and-inside-groups"
+    }],
+    "import/no-unresolved": "off",
+    "import/unambiguous": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "amd": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.4.999"
+    }
+  }
+}

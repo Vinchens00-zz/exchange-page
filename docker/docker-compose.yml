@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  ui:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      
+    restart: "no"
+    command: "npm start"
+    ports:
+      - "3000:80"
+    volumes:
+      - ../:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
