@@ -66,7 +66,6 @@ class Container extends React.Component {
       rates[fromAsset] !== prevRates[fromAsset] ||
       rates[toAsset] !== prevRates[toAsset]
     ) {
-      // TODO make this beauty?
       if (isFromFocused && fromAmount.length) {
         this.onFromAmountChange(fromAmount);
       } else if (toAmount.length) {
