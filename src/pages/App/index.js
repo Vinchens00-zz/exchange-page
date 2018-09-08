@@ -1,9 +1,15 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
+import MainPage from 'pages/Main';
+
 class App extends React.Component {
   render() {
-    return <main>Main Page</main>;
+    return (
+      <main>
+        <MainPage />
+      </main>
+    );
   }
 }
 
