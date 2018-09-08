@@ -7,7 +7,12 @@ import { propTypes } from './props';
 
 const b = cn('exchange');
 
-const Component = ({ onInputChange, onInputFocus, fields }) => (
+const Component = ({
+  onInputChange,
+  onInputFocus,
+  fields,
+  onSubmitExchange
+}) => (
   <div className={b()}>
     Exchange Component:
     <div>Selector 1</div>
@@ -26,6 +31,9 @@ const Component = ({ onInputChange, onInputFocus, fields }) => (
       />
     </div>
     <div>Selector 2</div>
+    <div>
+      <button onClick={onSubmitExchange}>Submit</button>
+    </div>
   </div>
 );
 

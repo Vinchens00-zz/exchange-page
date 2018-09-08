@@ -102,12 +102,15 @@ class Container extends React.Component {
     this.setState({ focusedInput: name });
   };
 
+  onSubmitExchange = () => {};
+
   render() {
     return (
       <Component
         onInputChange={this.onInputChange}
         fields={this.state}
         onInputFocus={this.onInputFocus}
+        onSubmitExchange={this.onSubmitExchange}
       />
     );
   }
