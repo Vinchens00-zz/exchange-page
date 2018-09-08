@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
@@ -178,6 +178,7 @@ module.exports = {
     // Makes some environment variables available in index.html.
     // Application version is available as %__VERSION__%
     // Deployed commit hash is available as %__COMMIT_HASH__%
+    new InterpolateHtmlPlugin(env.raw),
     new MiniCssExtractPlugin({
       filename: 'bundle.[hash:8].css',
       path: paths.appBuild,

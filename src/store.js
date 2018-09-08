@@ -5,7 +5,7 @@ import rootReducer, { rootSagas } from 'ducks/root';
 
 const sagaMiddleware = createSagaMiddleware({
   // eslint-disable-next-line
-  onError: error => console.log(error)
+  onError: error => console.error(error)
 });
 
 export function configureStore(initialState = {}) {
