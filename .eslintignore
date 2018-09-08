@@ -1,0 +1,7 @@
+node_modules/*
+config/webpack.config.*
+scripts/*
+svg-to-icon-component-runtime-generator.js
+dist/*
+coverage/*
+public/

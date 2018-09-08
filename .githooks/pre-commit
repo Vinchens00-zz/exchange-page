@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# To enable this hook, symlink or copy this file to .git/hooks/pre-commit.
+
+make fix-code-style-diff
