@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({});
+import ratesReducer from '../rates';
+
+const rootReducer = combineReducers({
+  rates: ratesReducer
+});
 
 export default rootReducer;

@@ -165,7 +165,9 @@ module.exports = {
       ducks: path.resolve(paths.appSrc, 'ducks'),
       elements: path.resolve(paths.appSrc, 'elements'),
       styles: path.resolve(paths.appSrc, 'styles'),
-      utils: path.resolve(paths.appSrc, 'utils')
+      utils: path.resolve(paths.appSrc, 'utils'),
+      constants: path.resolve(paths.appSrc, 'constants'),
+      formatters: path.resolve(paths.appSrc, 'formatters')
     }
   },
   plugins: [
