@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Asset = PropTypes.shape({
-  id: PropTypes.string,
-  name: PropTypes.string,
-  rates: PropTypes.object
-});
+import Asset from 'props/Asset';
 
 export const propTypes = {
   onInputChange: PropTypes.func,

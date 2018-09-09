@@ -167,7 +167,8 @@ module.exports = {
       styles: path.resolve(paths.appSrc, 'styles'),
       utils: path.resolve(paths.appSrc, 'utils'),
       constants: path.resolve(paths.appSrc, 'constants'),
-      formatters: path.resolve(paths.appSrc, 'formatters')
+      formatters: path.resolve(paths.appSrc, 'formatters'),
+      props: path.resolve(paths.appSrc, 'props')
     }
   },
   plugins: [
