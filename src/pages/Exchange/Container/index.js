@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { get } from 'lodash';
 
 import { ratesSelectors, ratesActions } from 'ducks/rates';
+import { historyActions } from 'ducks/history';
 import { floor } from 'utils/math';
 
 import Component from '../Component';
@@ -48,9 +49,9 @@ class Container extends React.Component {
   };
 
   componentDidMount() {
-    const { fetch } = this.props;
-    fetch(); // TODO uncomment this later, when we'll have info to debug
-    // this.timer = setInterval(fetch, POLL_TIMEOUT);
+    const { fetchRates } = this.props;
+    fetchRates(); // TODO uncomment this later, when we'll have info to debug
+    // this.timer = setInterval(fetchRates, POLL_TIMEOUT);
   }
 
   componentWillUnmount() {
@@ -112,9 +113,21 @@ class Container extends React.Component {
   };
 
   onSubmitExchange = () => {
+    const { createOperation } = this.props;
+    const { fromAmount, toAmount, fromAsset, toAsset } = this.state;
+
+    createOperation({
+      fromAmount,
+      toAmount,
+      fromAsset: fromAsset.id,
+      toAsset: toAsset.id
+    });
+
     this.setState({
       fromAmount: '',
-      toAmount: ''
+      toAmount: '',
+      fromAsset,
+      toAsset
     });
   };
 
@@ -172,7 +185,7 @@ export default connect(
     assets: ratesSelectors.assetsWithPrice(state)
   }),
   dispatch => ({
-    fetch: bindActionCreators(ratesActions.fetch, dispatch),
-    update: bindActionCreators(ratesActions.update, dispatch)
+    fetchRates: bindActionCreators(ratesActions.fetch, dispatch),
+    createOperation: bindActionCreators(historyActions.create, dispatch)
   })
 )(Container);

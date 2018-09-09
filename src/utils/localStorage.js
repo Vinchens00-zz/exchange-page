@@ -5,21 +5,21 @@ class LocalStorage {
     this._storage = window.localStorage;
   }
 
-  get(key) {
+  get = key => {
     return JSON.parse(this._storage.getItem(this._getKey(key)));
-  }
+  };
 
-  set(key, value) {
+  set = (key, value) => {
     this._storage.setItem(this._getKey(key), JSON.stringify(value));
-  }
+  };
 
-  remove(key) {
+  remove = key => {
     this._storage.removeItem(this._getKey(key));
-  }
+  };
 
-  _getKey(key) {
+  _getKey = key => {
     return `${PREFIX}:${key}`;
-  }
+  };
 }
 
 const localStorage = new LocalStorage();

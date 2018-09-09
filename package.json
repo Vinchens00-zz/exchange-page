@@ -75,6 +75,7 @@
     "stylus-bem-sugar": "^1.0.2",
     "thread-loader": "^1.1.5",
     "uglifyjs-webpack-plugin": "^1.2.7",
+    "uuid": "^3.3.2",
     "wait-on": "^2.1.0"
   }
 }
