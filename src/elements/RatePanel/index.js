@@ -1,8 +1,7 @@
-import { ASSET_SIGN } from 'constants/assets';
-
 import React from 'react';
 
 import cn from 'utils/bem';
+import AssetAmount from 'elements/AssetAmount';
 
 import { propTypes } from './props';
 import './style.styl';
@@ -23,7 +22,17 @@ const RatePanel = ({ className, onClick, rate, fromAssetId, toAssetId }) => {
   return (
     <button className={b(null, null, className)} onClick={onClick}>
       <span className={b('large-part')}>
-        {`${ASSET_SIGN[fromAssetId]}1 = ${ASSET_SIGN[toAssetId]}${largeRate}`}
+        <AssetAmount
+          assetId={fromAssetId}
+          amount="1"
+          assetSignClassName={b('asset-sign')}
+        />
+        <span> = </span>
+        <AssetAmount
+          assetId={toAssetId}
+          amount={largeRate}
+          assetSignClassName={b('asset-sign')}
+        />
       </span>
       <span className={b('small-part')}>{smallRate}</span>
     </button>

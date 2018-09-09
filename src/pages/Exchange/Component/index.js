@@ -21,7 +21,6 @@ const Component = ({
 }) => (
   <div className={b()}>
     <div className={b('top-panel')}>
-      <div />
       <RatePanel
         className={b('rate-panel')}
         fromAssetId={fields.fromAsset.id}

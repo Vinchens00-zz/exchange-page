@@ -1,0 +1,64 @@
++b('operation')
+  display flex
+
+  +e('icon')
+    flex-grow 1
+
+  +e('icon-circle')
+    border-radius 100%
+    background-color rgba(0,0,0,0.2)
+    width 40px
+    height 40px
+
+    display flex
+    justify-content center
+    
+    +e('icon-svg')
+      margin auto 0
+      color white
+  
+  +e('content')
+    flex-grow 2
+    display flex
+    flex-direction column
+    justify-content space-between
+    padding 5px 0px
+
+  +e('assets')
+    font-weight 100
+    font-size 12px
+    opacity 0.8
+
+  +e('date')
+    font-weight: 100
+    font-size 11px
+    opacity 0.5
+  
+  +e('numbers')
+    flex-grow 1
+    display flex
+    flex-direction column
+    text-align end
+    justify-content space-between
+    padding 4px 0px
+
+  +e('amount')
+    color black
+    font-weight 100
+    font-size 14px
+    letter-spacing 0.2px
+
+    +m('from')
+      color black
+      font-size 14px
+
+    +m('to')
+      color #3aa2e7
+      font-size 12px
+
+  +e('asset-sign')
+    +m('from')
+      font-size 11px
+
+    +m('to')
+      font-size 10px
