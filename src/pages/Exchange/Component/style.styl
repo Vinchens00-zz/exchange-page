@@ -9,13 +9,22 @@
     box-sizing border-box
     padding 20px 30px
     width 100%
-    display flex
-    justify-content flex-end
+    //display flex
+    //justify-content flex-end
+    display grid
+    grid-template-columns 1fr 1fr 1fr
     z-index 1
 
   +e('exchange-button')
     text-transform uppercase
     font-size 14px
+    grid-column 3
+    justify-self end
+
+  +e('rate-panel')
+    grid-column 2
+    width 150px
+    justify-self center
 
   +e('row')
     position relative

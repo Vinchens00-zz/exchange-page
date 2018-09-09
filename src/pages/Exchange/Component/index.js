@@ -3,6 +3,7 @@ import React from 'react';
 import SignInput from 'elements/SignInput';
 import AssetSelector from 'components/AssetSelector';
 import Button from 'elements/Button';
+import RatePanel from 'elements/RatePanel';
 import cn from 'utils/bem';
 
 import { propTypes } from './props';
@@ -15,11 +16,18 @@ const Component = ({
   onInputChange,
   onInputFocus,
   onAssetChange,
-  data: { assets },
+  data: { assets, rate },
   onSubmitExchange
 }) => (
   <div className={b()}>
     <div className={b('top-panel')}>
+      <div />
+      <RatePanel
+        className={b('rate-panel')}
+        fromAssetId={fields.fromAsset.id}
+        toAssetId={fields.toAsset.id}
+        rate={rate}
+      />
       <Button className={b('exchange-button')} onClick={onSubmitExchange}>
         Exchange
       </Button>

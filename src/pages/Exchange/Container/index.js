@@ -147,14 +147,16 @@ class Container extends React.Component {
   };
 
   render() {
-    const { assets } = this.props;
+    const { assets, rates } = this.props;
+    const fields = this.state;
 
     return (
       <Component
         onInputChange={this.onInputChange}
         fields={this.state}
         data={{
-          assets
+          assets,
+          rate: rates[fields.fromAsset.id][fields.toAsset.id]
         }}
         onInputFocus={this.onInputFocus}
         onSubmitExchange={this.onSubmitExchange}
