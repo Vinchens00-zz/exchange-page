@@ -40,7 +40,7 @@ const Component = ({
         onChange={onAssetChange('fromAsset')}
       />
       <SignInput
-        sign="+"
+        sign="-"
         autoFocus
         className={b('input')}
         value={fields.fromAmount}
@@ -56,7 +56,7 @@ const Component = ({
         onChange={onAssetChange('toAsset')}
       />
       <SignInput
-        sign="-"
+        sign="+"
         className={b('input')}
         value={fields.toAmount}
         onChange={onInputChange('toAmount')}

@@ -38,7 +38,7 @@ class HistoryPage extends React.Component {
 
 export default connect(
   state => ({
-    operations: historySelectors.operations(state)
+    operations: historySelectors.recentOperations(state)
   }),
   null
 )(HistoryPage);
