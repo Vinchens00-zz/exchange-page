@@ -11,16 +11,9 @@ class Input extends React.PureComponent {
   };
 
   render() {
-    const { placeholder, value, onFocus } = this.props;
+    const props = this.props;
 
-    return (
-      <input
-        onChange={this.onChange}
-        onFocus={onFocus}
-        placeholder={placeholder}
-        value={value}
-      />
-    );
+    return <input {...props} onChange={this.onChange} />;
   }
 }
 
