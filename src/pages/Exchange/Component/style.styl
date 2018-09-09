@@ -11,7 +11,7 @@
     width 100%
     display grid
     grid-template-columns 1fr 1fr 1fr
-    z-index 1
+    z-index 3
 
   +e('exchange-button')
     font-size 14px
@@ -31,11 +31,13 @@
 
     +m('bottom')
       background-image linear-gradient(#1355a1, #195eaa)
-      z-index -2
+
+    +m('top')
+      z-index 2
 
   +e('pointer')
     position absolute
-    z-index -2
+    z-index 1
     width 40px
     height 40px
     transform rotate(45deg)
