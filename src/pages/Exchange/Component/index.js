@@ -2,6 +2,7 @@ import React from 'react';
 
 import SignInput from 'elements/SignInput';
 import AssetSelector from 'components/AssetSelector';
+import Button from 'elements/Button';
 import cn from 'utils/bem';
 
 import { propTypes } from './props';
@@ -14,10 +15,16 @@ const Component = ({
   onInputChange,
   onInputFocus,
   onAssetChange,
-  data: { assets }
-  //onSubmitExchange
+  data: { assets },
+  onSubmitExchange
 }) => (
   <div className={b()}>
+    <div className={b('top-panel')}>
+      <Button className={b('exchange-button')} onClick={onSubmitExchange}>
+        Exchange
+      </Button>
+    </div>
+
     <div className={b('row', 'top')}>
       <AssetSelector
         className={b('asset-selector')}

@@ -4,6 +4,19 @@
   height 100vh
   position relative
 
+  +e('top-panel')
+    position absolute
+    box-sizing border-box
+    padding 20px 30px
+    width 100%
+    display flex
+    justify-content flex-end
+    z-index 1
+
+  +e('exchange-button')
+    text-transform uppercase
+    font-size 14px
+
   +e('row')
     position relative
     display flex
@@ -12,13 +25,11 @@
 
     +m('bottom')
       background-image linear-gradient(#1355a1, #195eaa)
-    
-    +m('top')
-      z-index 2
+      z-index -2
 
   +e('pointer')
     position absolute
-    z-index 1
+    z-index -1
     width 40px
     height 40px
     transform rotate(45deg)
