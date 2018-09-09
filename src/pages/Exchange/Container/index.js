@@ -78,9 +78,21 @@ class Container extends React.Component {
     }
   }
 
+  resetInputs = () => {
+    this.setState({
+      fromAmount: '',
+      toAmount: ''
+    });
+  };
+
   onFromAmountChange = fromAmount => {
     const { fromAsset, toAsset } = this.state;
     const { rates } = this.props;
+
+    if (!fromAmount) {
+      this.resetInputs();
+      return;
+    }
 
     const price = rates[fromAsset.id][toAsset.id];
     const toAmount = floor(price * fromAmount, PRECISION);
@@ -94,6 +106,11 @@ class Container extends React.Component {
   onToAmountChange = toAmount => {
     const { fromAsset, toAsset } = this.state;
     const { rates } = this.props;
+
+    if (!toAmount) {
+      this.resetInputs();
+      return;
+    }
 
     const price = rates[toAsset.id][fromAsset.id];
 
@@ -123,12 +140,7 @@ class Container extends React.Component {
       toAsset: toAsset.id
     });
 
-    this.setState({
-      fromAmount: '',
-      toAmount: '',
-      fromAsset,
-      toAsset
-    });
+    this.resetInputs();
   };
 
   onFromAssetChanged = fromAsset => {
