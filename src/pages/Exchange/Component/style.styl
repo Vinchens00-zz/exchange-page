@@ -1,0 +1,61 @@
++b('exchange')
+  display flex
+  flex-direction column
+  height 100vh
+  position relative
+
+  +e('top-panel')
+    position absolute
+    box-sizing border-box
+    padding 20px 30px
+    width 100%
+    display grid
+    grid-template-columns 1fr 1fr 1fr
+    z-index 3
+
+  +e('exchange-button')
+    font-size 14px
+    grid-column 3
+    justify-self end
+
+  +e('rate-panel')
+    grid-column 2
+    width 150px
+    justify-self center
+
+  +e('row')
+    position relative
+    display flex
+    background-image linear-gradient(#0357b5, #1376e5)
+    flex-grow 1
+
+    +m('bottom')
+      background-image linear-gradient(#1355a1, #195eaa)
+
+    +m('top')
+      z-index 2
+
+  +e('pointer')
+    position absolute
+    z-index 1
+    width 40px
+    height 40px
+    transform rotate(45deg)
+    background-image linear-gradient(#1175e4, #1a79e6)
+    top calc(50% - 20px)
+    left calc(50% - 20px)
+
+  +e('asset-selector')
+    margin auto 0
+
+  +e('input')
+    position absolute
+    right 100px
+    top calc(50% - 16px)
+    border none 
+    outline none 
+    background transparent
+    caret-color white
+    color white
+    font-size 28px
+    text-align right

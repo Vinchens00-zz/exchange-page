@@ -3,3 +3,9 @@ export const ASSETS = {
   EUR: 'EUR',
   GBP: 'GBP'
 };
+
+export const ASSET_SIGN = {
+  USD: '$',
+  EUR: '€',
+  GBP: '£'
+};

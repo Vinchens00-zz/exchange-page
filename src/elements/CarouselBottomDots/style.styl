@@ -1,0 +1,22 @@
++b('carousel-bottom-dots')
+  position relative
+  margin 0
+  top 50
+  padding 0
+
+  +e('point')
+    list-style-type none
+    display inline-block
+
+  +e('button')
+    border 0
+    background transparent
+    color white
+    cursor pointer
+    padding 10
+    outline 0
+    font-size 24px
+    opacity 0.5
+
+    +m('active')
+      opacity 1
