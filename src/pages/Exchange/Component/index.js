@@ -16,11 +16,11 @@ const Component = ({
   onInputChange,
   onInputFocus,
   onAssetChange,
-  data: { assets, rate },
+  data: { assets, rate, revertRate },
   onSubmitExchange
 }) => (
   <div className={b()}>
-    <div className={b('top-panel')}>
+    <div className={b('info-panel')}>
       <RatePanel
         className={b('rate-panel')}
         fromAssetId={fields.fromAsset.id}
@@ -64,6 +64,14 @@ const Component = ({
       />
     </div>
     <div className={b('pointer')} />
+    <div className={b('info-panel', 'bottom')}>
+      <RatePanel
+        className={b('rate-panel')}
+        fromAssetId={fields.toAsset.id}
+        toAssetId={fields.fromAsset.id}
+        rate={revertRate}
+      />
+    </div>
   </div>
 );
 

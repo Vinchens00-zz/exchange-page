@@ -181,7 +181,8 @@ class Container extends React.Component {
         fields={this.state}
         data={{
           assets,
-          rate: rates[fields.fromAsset.id][fields.toAsset.id]
+          rate: rates[fields.fromAsset.id][fields.toAsset.id],
+          revertRate: rates[fields.toAsset.id][fields.fromAsset.id]
         }}
         onInputFocus={this.onInputFocus}
         onSubmitExchange={this.onSubmitExchange}
