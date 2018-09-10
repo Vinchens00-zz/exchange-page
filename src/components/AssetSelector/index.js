@@ -4,6 +4,7 @@ import Carousel from 'nuka-carousel';
 import cn from 'utils/bem';
 import Arrow from 'elements/Arrow';
 import CarouselBottomDots from 'elements/CarouselBottomDots';
+import AssetAmount from 'elements/AssetAmount';
 
 import { propTypes } from './props';
 
@@ -47,7 +48,17 @@ class AssetSelector extends React.Component {
       >
         {assets.map(asset => (
           <div key={asset.id} className={b('item')}>
-            <span className={b('asset-name')}>{asset.name}</span>
+            <div className={b('info')}>
+              <span className={b('asset-name')}>{asset.name}</span>
+              <span className={b('asset-balance')}>
+                <span>You have </span>
+                <AssetAmount
+                  assetId={asset.id}
+                  amount={asset.balance}
+                  assetSignClassName={b('asset-sign')}
+                />
+              </span>
+            </div>
           </div>
         ))}
       </Carousel>
