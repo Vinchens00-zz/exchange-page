@@ -7,7 +7,7 @@ import { get } from 'lodash';
 
 import { ratesSelectors, ratesActions } from 'ducks/rates';
 import { historyActions } from 'ducks/history';
-import { balancesSelectors } from 'ducks/balances';
+import { balancesSelectors, balancesActions } from 'ducks/balances';
 
 import { floor } from 'utils/math';
 
@@ -134,7 +134,7 @@ class Container extends React.Component {
   };
 
   onSubmitExchange = () => {
-    const { createOperation } = this.props;
+    const { createOperation, updateBalances, balances } = this.props;
     const { fromAmount, toAmount, fromAsset, toAsset } = this.state;
 
     createOperation({
@@ -143,6 +143,17 @@ class Container extends React.Component {
       fromAsset: fromAsset.id,
       toAsset: toAsset.id
     });
+
+    updateBalances([
+      {
+        id: fromAsset.id,
+        amount: floor(balances[fromAsset.id] - fromAmount, 2)
+      },
+      {
+        id: toAsset.id,
+        amount: floor(balances[toAsset.id] - toAmount, 2)
+      }
+    ]);
 
     this.resetInputs();
   };
@@ -213,6 +224,7 @@ export default connect(
   }),
   dispatch => ({
     fetchRates: bindActionCreators(ratesActions.fetch, dispatch),
-    createOperation: bindActionCreators(historyActions.create, dispatch)
+    createOperation: bindActionCreators(historyActions.create, dispatch),
+    updateBalances: bindActionCreators(balancesActions.updateBalances, dispatch)
   })
 )(Container);
