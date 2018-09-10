@@ -54,7 +54,7 @@ class AssetSelector extends React.Component {
                 <span>You have </span>
                 <AssetAmount
                   assetId={asset.id}
-                  amount={asset.balance}
+                  amount={String(asset.balance)}
                   assetSignClassName={b('asset-sign')}
                 />
               </span>
