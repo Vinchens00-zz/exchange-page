@@ -6,10 +6,14 @@ import Button from 'elements/Button';
 import RatePanel from 'elements/RatePanel';
 import cn from 'utils/bem';
 
+import { mask } from '../Container/validate';
+
 import { propTypes } from './props';
 import './style.styl';
 
 const b = cn('exchange');
+
+const MAX_LENGTH = 12;
 
 const Component = ({
   fields,
@@ -51,6 +55,8 @@ const Component = ({
         value={fields.fromAmount}
         onChange={onInputChange('fromAmount')}
         onFocus={onInputFocus('fromAmount')}
+        mask={mask}
+        maxLength={MAX_LENGTH}
       />
     </div>
     <div className={b('row', 'bottom')}>
@@ -66,6 +72,8 @@ const Component = ({
         value={fields.toAmount}
         onChange={onInputChange('toAmount')}
         onFocus={onInputFocus('toAmount')}
+        mask={mask}
+        maxLength={MAX_LENGTH}
       />
     </div>
     <div className={b('pointer')} />
