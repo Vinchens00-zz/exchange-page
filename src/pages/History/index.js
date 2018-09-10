@@ -21,7 +21,7 @@ class HistoryPage extends React.Component {
       <div className={b(null, { empty: isEmpty })}>
         {isEmpty ? (
           <span className={b('empty-message')}>
-            There are no exchange history yet.
+            There is no exchange history yet.
           </span>
         ) : (
           operations.map(operation => (

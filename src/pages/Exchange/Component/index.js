@@ -57,6 +57,8 @@ const Component = ({
         onFocus={onInputFocus('fromAmount')}
         mask={mask}
         maxLength={MAX_LENGTH}
+        mods="transparent"
+        error={validation.fromAmount}
       />
     </div>
     <div className={b('row', 'bottom')}>
@@ -74,6 +76,8 @@ const Component = ({
         onFocus={onInputFocus('toAmount')}
         mask={mask}
         maxLength={MAX_LENGTH}
+        mods="transparent"
+        error={validation.toAmount}
       />
     </div>
     <div className={b('pointer')} />

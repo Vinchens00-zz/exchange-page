@@ -7,6 +7,8 @@ import { get } from 'lodash';
 
 import { ratesSelectors, ratesActions } from 'ducks/rates';
 import { historyActions } from 'ducks/history';
+import { balancesSelectors } from 'ducks/balances';
+
 import { floor } from 'utils/math';
 
 import Component from '../Component';
@@ -15,7 +17,7 @@ import { propTypes } from './props';
 import { validate } from './validate';
 import { assets as assetsSelector } from './selectors';
 
-//const POLL_TIMEOUT = 10 * 1000;
+const POLL_TIMEOUT = 10 * 1000;
 const PRECISION = 2;
 
 class Container extends React.Component {
@@ -52,12 +54,12 @@ class Container extends React.Component {
 
   componentDidMount() {
     const { fetchRates } = this.props;
-    fetchRates(); // TODO uncomment this later, when we'll have info to debug
-    // this.timer = setInterval(fetchRates, POLL_TIMEOUT);
+    fetchRates();
+    this.timer = setInterval(fetchRates, POLL_TIMEOUT);
   }
 
   componentWillUnmount() {
-    //clearInterval(this.timer);
+    clearInterval(this.timer);
   }
 
   componentDidUpdate(prevProps) {
@@ -175,7 +177,7 @@ class Container extends React.Component {
 
   getFormState = () => {
     const fields = this.state;
-    const { rates, assets } = this.props;
+    const { rates, assets, balances } = this.props;
 
     return {
       fields,
@@ -184,7 +186,7 @@ class Container extends React.Component {
         rate: rates[fields.fromAsset.id][fields.toAsset.id],
         revertRate: rates[fields.toAsset.id][fields.fromAsset.id]
       },
-      validation: validate(fields)
+      validation: validate(fields, { balances })
     };
   };
 
@@ -206,7 +208,8 @@ class Container extends React.Component {
 export default connect(
   state => ({
     rates: ratesSelectors.rates(state),
-    assets: assetsSelector(state)
+    assets: assetsSelector(state),
+    balances: balancesSelectors.balances(state)
   }),
   dispatch => ({
     fetchRates: bindActionCreators(ratesActions.fetch, dispatch),
