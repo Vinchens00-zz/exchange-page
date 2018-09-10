@@ -12,6 +12,7 @@ import { floor } from 'utils/math';
 import Component from '../Component';
 
 import { propTypes } from './props';
+import { validate } from './validate';
 
 //const POLL_TIMEOUT = 10 * 1000;
 const PRECISION = 2;
@@ -171,19 +172,28 @@ class Container extends React.Component {
       : this.onToAssetChanged;
   };
 
-  render() {
-    const { assets, rates } = this.props;
+  getFormState = () => {
     const fields = this.state;
+    const { rates, assets } = this.props;
+
+    return {
+      fields,
+      data: {
+        assets,
+        rate: rates[fields.fromAsset.id][fields.toAsset.id],
+        revertRate: rates[fields.toAsset.id][fields.fromAsset.id]
+      },
+      validation: validate(fields)
+    };
+  };
+
+  render() {
+    const formState = this.getFormState();
 
     return (
       <Component
+        {...formState}
         onInputChange={this.onInputChange}
-        fields={this.state}
-        data={{
-          assets,
-          rate: rates[fields.fromAsset.id][fields.toAsset.id],
-          revertRate: rates[fields.toAsset.id][fields.fromAsset.id]
-        }}
         onInputFocus={this.onInputFocus}
         onSubmitExchange={this.onSubmitExchange}
         onAssetChange={this.onAssetChange}

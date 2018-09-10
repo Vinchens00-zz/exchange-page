@@ -5,5 +5,6 @@ import Children from 'props/Children';
 export const propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
-  children: Children
+  children: Children,
+  disabled: PropTypes.bool
 };

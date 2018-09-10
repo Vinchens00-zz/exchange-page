@@ -17,6 +17,7 @@ const Component = ({
   onInputFocus,
   onAssetChange,
   data: { assets, rate, revertRate },
+  validation,
   onSubmitExchange
 }) => (
   <div className={b()}>
@@ -27,7 +28,11 @@ const Component = ({
         toAssetId={fields.toAsset.id}
         rate={rate}
       />
-      <Button className={b('exchange-button')} onClick={onSubmitExchange}>
+      <Button
+        className={b('exchange-button')}
+        onClick={onSubmitExchange}
+        disabled={!validation.isValid}
+      >
         Exchange
       </Button>
     </div>

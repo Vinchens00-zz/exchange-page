@@ -13,5 +13,14 @@ export const propTypes = {
     toAmount: PropTypes.string,
     fromAsset: Asset,
     toAsset: Asset
+  }),
+
+  data: PropTypes.shape({
+    rate: PropTypes.number,
+    reverseRate: PropTypes.number,
+    assets: PropTypes.arrayOf(Asset)
+  }),
+  validation: PropTypes.shape({
+    isValid: PropTypes.bool
   })
 };

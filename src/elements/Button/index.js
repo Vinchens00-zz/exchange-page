@@ -7,8 +7,12 @@ import { propTypes } from './props';
 
 const b = cn('button');
 
-const Button = ({ className, children, onClick }) => (
-  <button className={b(null, null, className)} onClick={onClick}>
+const Button = ({ className, children, onClick, disabled }) => (
+  <button
+    className={b(null, null, className)}
+    onClick={onClick}
+    disabled={disabled}
+  >
     {children}
   </button>
 );
