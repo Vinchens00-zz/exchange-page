@@ -13,6 +13,7 @@ import Component from '../Component';
 
 import { propTypes } from './props';
 import { validate } from './validate';
+import { assets as assetsSelector } from './selectors';
 
 //const POLL_TIMEOUT = 10 * 1000;
 const PRECISION = 2;
@@ -205,7 +206,7 @@ class Container extends React.Component {
 export default connect(
   state => ({
     rates: ratesSelectors.rates(state),
-    assets: ratesSelectors.assetsWithPrice(state)
+    assets: assetsSelector(state)
   }),
   dispatch => ({
     fetchRates: bindActionCreators(ratesActions.fetch, dispatch),

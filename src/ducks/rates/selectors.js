@@ -13,7 +13,7 @@ const base = createSelector(data, data => data.base);
 const baseRates = createSelector(data, data => data.rates);
 
 /* 
-  This function builds data structure with direct and revert rates for all supported assets:
+  This function builds data structure with cross rates for all supported assets:
   {
     "USD": {
       "EUR": 1.2,
