@@ -47,7 +47,12 @@ class AssetSelector extends React.Component {
       >
         {assets.map(asset => (
           <div key={asset.id} className={b('item')}>
-            <span className={b('asset-name')}>{asset.name}</span>
+            <div className={b('info')}>
+              <span className={b('asset-name')}>{asset.name}</span>
+              <span className={b('asset-balance')}>
+                You have {asset.balance}
+              </span>
+            </div>
           </div>
         ))}
       </Carousel>

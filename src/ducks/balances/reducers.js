@@ -6,7 +6,7 @@ import { floor } from 'utils/math';
 
 const DEFAULT_STATE = Object.values(ASSETS).map(id => ({
   id,
-  amount: 500 + floor(Math.random() * 800, 8)
+  amount: 500 + floor(Math.random() * 800, 2)
 }));
 
 const reducer = createReducer({}, DEFAULT_STATE);
