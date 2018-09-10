@@ -15,10 +15,15 @@ class HistoryPage extends React.Component {
 
   render() {
     const { operations } = this.props;
+    const isEmpty = !operations.length;
 
     return (
-      <div className={b()}>
-        {operations.length ? (
+      <div className={b(null, { empty: isEmpty })}>
+        {isEmpty ? (
+          <span className={b('empty-message')}>
+            There are no exchange history yet.
+          </span>
+        ) : (
           operations.map(operation => (
             <Operation
               key={operation.id}
@@ -26,10 +31,6 @@ class HistoryPage extends React.Component {
               className={b('operation')}
             />
           ))
-        ) : (
-          <span className={b('empty-message')}>
-            There are no exchange history yet.
-          </span>
         )}
       </div>
     );
@@ -38,7 +39,7 @@ class HistoryPage extends React.Component {
 
 export default connect(
   state => ({
-    operations: historySelectors.operations(state)
+    operations: historySelectors.recentOperations(state)
   }),
   null
 )(HistoryPage);

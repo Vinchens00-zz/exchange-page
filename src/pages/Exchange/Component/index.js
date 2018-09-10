@@ -6,28 +6,37 @@ import Button from 'elements/Button';
 import RatePanel from 'elements/RatePanel';
 import cn from 'utils/bem';
 
+import { mask } from '../Container/validate';
+
 import { propTypes } from './props';
 import './style.styl';
 
 const b = cn('exchange');
+
+const MAX_LENGTH = 12;
 
 const Component = ({
   fields,
   onInputChange,
   onInputFocus,
   onAssetChange,
-  data: { assets, rate },
+  data: { assets, rate, revertRate },
+  validation,
   onSubmitExchange
 }) => (
   <div className={b()}>
-    <div className={b('top-panel')}>
+    <div className={b('info-panel')}>
       <RatePanel
         className={b('rate-panel')}
         fromAssetId={fields.fromAsset.id}
         toAssetId={fields.toAsset.id}
         rate={rate}
       />
-      <Button className={b('exchange-button')} onClick={onSubmitExchange}>
+      <Button
+        className={b('exchange-button')}
+        onClick={onSubmitExchange}
+        disabled={!validation.isValid}
+      >
         Exchange
       </Button>
     </div>
@@ -40,12 +49,14 @@ const Component = ({
         onChange={onAssetChange('fromAsset')}
       />
       <SignInput
-        sign="+"
+        sign="-"
         autoFocus
         className={b('input')}
         value={fields.fromAmount}
         onChange={onInputChange('fromAmount')}
         onFocus={onInputFocus('fromAmount')}
+        mask={mask}
+        maxLength={MAX_LENGTH}
       />
     </div>
     <div className={b('row', 'bottom')}>
@@ -56,14 +67,24 @@ const Component = ({
         onChange={onAssetChange('toAsset')}
       />
       <SignInput
-        sign="-"
+        sign="+"
         className={b('input')}
         value={fields.toAmount}
         onChange={onInputChange('toAmount')}
         onFocus={onInputFocus('toAmount')}
+        mask={mask}
+        maxLength={MAX_LENGTH}
       />
     </div>
     <div className={b('pointer')} />
+    <div className={b('info-panel', 'bottom')}>
+      <RatePanel
+        className={b('rate-panel')}
+        fromAssetId={fields.toAsset.id}
+        toAssetId={fields.fromAsset.id}
+        rate={revertRate}
+      />
+    </div>
   </div>
 );
 

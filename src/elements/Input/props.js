@@ -5,5 +5,6 @@ export const propTypes = {
   onFocus: PropTypes.func,
 
   placeholder: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  mask: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 };

@@ -4,7 +4,7 @@
   height 100vh
   position relative
 
-  +e('top-panel')
+  +e('info-panel')
     position absolute
     box-sizing border-box
     padding 20px 30px
@@ -12,6 +12,12 @@
     display grid
     grid-template-columns 1fr 1fr 1fr
     z-index 3
+
+    +m('bottom')
+      bottom 0px
+      height 56px
+      padding 0px 30px 20px
+
 
   +e('exchange-button')
     font-size 14px
