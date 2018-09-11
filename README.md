@@ -1,5 +1,8 @@
 # Revolut exchange screen
 
+## API:
+This app uses free plan of https://openexchangerates.org/api rates provider. It has some limited requests per month count, so app migth not work if limit will be reached.
+
 ## For developers:
 
 Application is powered by Docker, so it's quite easy to create the local environment.
