@@ -151,7 +151,7 @@ class Container extends React.Component {
       },
       {
         id: toAsset.id,
-        amount: floor(balances[toAsset.id] - toAmount, 2)
+        amount: floor(+toAmount + balances[toAsset.id], 2)
       }
     ]);
 
